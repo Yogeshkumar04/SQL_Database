@@ -72,6 +72,10 @@ def delete_item():
     else:
         return render_template('item_not_found.html')
 
+@app.route('/show_items', methods=['GET'])
+def show_items():
+    items = Item.query.all()
+    return render_template('show_items.html', items=items)
 
 
 if __name__ == '__main__':
